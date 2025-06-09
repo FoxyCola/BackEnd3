@@ -3,10 +3,11 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db'); // Importa la función de conexión a DB
+
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
-const chatRoutes = require('./routes/cartRoutes');
+const chatRoutes = require('./routes/chatRoutes');
 const orderRoutes = require('./routes/orderRoutes');//order routes
 const aiChatRoutes = require('./routes/aiChatRoutes');
 // Cargar variables de entorno
@@ -19,7 +20,13 @@ const app = express();
 
 // Middlewares
 app.use(express.json()); // Permite que el servidor entienda JSON en las solicitudes
-app.use(cors()); // Habilita CORS para todas las rutas
+// Cors
+app.use(cors({
+    origin: process.env.FRONTEND_URL, // Permite solo solicitudes desde la URL de tu frontend en Vercel
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
+    credentials: true // Permite el envío de cookies/encabezados de autorización si es necesario
+}));
+
 
 // Ruta de prueba (para verificar que el servidor está funcionando)
 app.get('/', (req, res) => {
