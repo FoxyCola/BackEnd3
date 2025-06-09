@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json()); // Permite que el servidor entienda JSON en las solicitudes
 // Cors
 app.use(cors({
-    origin: process.env.FRONTEND_URL, // Permite solo solicitudes desde la URL de tu frontend en Vercel
+    origin: '*', // Permite solo solicitudes desde la URL de tu frontend en Vercel
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
     credentials: true // Permite el envío de cookies/encabezados de autorización si es necesario
 }));
