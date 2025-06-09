@@ -129,7 +129,7 @@ exports.sendMessageToAI = async (req, res) => {
         // en el historial de Gemini. Esto actúa como una "instrucción del sistema" para Gemini.
         conversationHistoryWithContext.push({
             role: "user",
-            parts: [{ text: `(Contexto para ti, AI: El nombre del usuario con el que estás conversando es ${userName}. Tenlo muy en cuenta en tus respuestas para personalizar la conversación.)` }]
+            parts: [{ text: `(Contexto para ti, tu nombre es Cat. El nombre del usuario con el que estás conversando es ${userName}. Tenlo muy en cuenta en tus respuestas para personalizar la conversación y no olvides sostener una actitud como un felino)` }]
         });
         conversationHistoryWithContext.push({
             role: "model",
