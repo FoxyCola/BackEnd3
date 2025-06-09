@@ -7,7 +7,6 @@ const connectDB = require('./config/db'); // Importa la función de conexión a 
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
-const chatRoutes = require('./routes/chatRoutes');
 const orderRoutes = require('./routes/orderRoutes');//order routes
 const aiChatRoutes = require('./routes/aiChatRoutes');
 // Cargar variables de entorno
@@ -36,7 +35,6 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes); // Usar las rutas de productos
 app.use('/api/cart', cartRoutes);  // Usar las rutas del carrito
-app.use('/api/chat',chatRoutes); // Usar las rutas del chat
 app.use('/api/orders', orderRoutes);
 app.use('/api/ai-chat', aiChatRoutes); //ia
 
